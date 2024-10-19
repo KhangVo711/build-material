@@ -35,8 +35,17 @@ jobs:
     - name: Build the project
       run: npm run build
 
+    - name: Export the project
+      run: npm run export  # Thêm dòng này để xuất tĩnh
+
     - name: Upload production-ready build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: next-build
-        path: .next
+        path: out  # Đảm bảo đường dẫn đúng với thư mục xuất
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: out  # Thư mục xuất

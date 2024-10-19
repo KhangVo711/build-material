@@ -1,3 +1,12 @@
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    // title: {
+    //   absolute: "Products",
+    // },
+    title: "Products"
+  };
+
 export default function ProductsPage() {
     return (
         <div className="min-h-screen bg-gray-100 text-gray-900">

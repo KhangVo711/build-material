@@ -1,11 +1,17 @@
+import Link from "next/link";
+
 export default function LoginPage() {
-    return (
-        <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+  return (
+    <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
       <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
         <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
-          <div>
-            <div className="w-full text-center mx-auto">LOGO</div>
-          </div>
+            <div className="w-full">
+              <img
+                alt=""
+                src="https://png.pngtree.com/png-vector/20220726/ourmid/pngtree-construction-logo-png-image_6066962.png"
+                className="h-16 w-auto mx-auto"
+              />
+            </div>
           <div className="mt-12 flex flex-col items-center">
             <h1 className="text-3xl xl:text-4xl font-extrabold uppercase tracking-wider">Login</h1>
             <div className="w-full flex-1 mt-10">
@@ -91,10 +97,12 @@ export default function LoginPage() {
                 </p>
               </div>
             </div>
+            <Link className="text-sm mt-14 text-indigo-600 border-b border-indigo-300" href="/register">Register Now</Link>
+
           </div>
         </div>
         <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
-        {/* m-12 xl:m-16  */}
+          {/* m-12 xl:m-16  */}
           <div
             className="w-full bg-cover bg-center bg-no-repeat rounded-r-lg"
             style={{
@@ -105,5 +113,5 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
-    )
+  )
 }

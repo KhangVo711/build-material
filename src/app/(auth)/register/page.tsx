@@ -1,10 +1,16 @@
+import Link from "next/link";
+
 export default function RegisterPage() {
     return (
         <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
             <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
                 <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
-                    <div>
-                        <div className="w-full text-center mx-auto">LOGO</div>
+                    <div className="w-full">
+                        <img
+                            alt=""
+                            src="https://png.pngtree.com/png-vector/20220726/ourmid/pngtree-construction-logo-png-image_6066962.png"
+                            className="h-16 w-auto mx-auto"
+                        />
                     </div>
                     <div className="mt-12 flex flex-col items-center">
                         <h1 className="text-3xl xl:text-4xl font-extrabold uppercase tracking-wider">register</h1>
@@ -47,7 +53,7 @@ export default function RegisterPage() {
                 </button> */}
                             </div>
 
-                            <div className="my-12 border-b text-center">
+                            <div className="my-8 border-b text-center">
                                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
                                     Or register with e-mail
                                 </div>
@@ -96,6 +102,8 @@ export default function RegisterPage() {
                                 </p>
                             </div>
                         </div>
+                        <Link className="text-sm mt-14 text-indigo-600 border-b border-indigo-300" href="/login">Login</Link>
+
                     </div>
                 </div>
                 <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">
