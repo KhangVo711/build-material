@@ -132,7 +132,7 @@ export default function Header() {
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link href="/login" className="text-sm font-semibold leading-6 text-gray-900 border rounded-2xl border-white hover:border hover:rounded-2xl hover:border-black px-2 py-1 transition duration-300 ease-in-out">
-            Log in <span aria-hidden="true">&rarr;</span>
+            Log in 
           </Link>
         </div>
       </nav>

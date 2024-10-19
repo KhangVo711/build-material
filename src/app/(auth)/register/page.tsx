@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image';
 
 export default function RegisterPage() {
     return (
@@ -6,11 +7,7 @@ export default function RegisterPage() {
             <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
                 <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                     <div className="w-full">
-                        <img
-                            alt=""
-                            src="https://png.pngtree.com/png-vector/20220726/ourmid/pngtree-construction-logo-png-image_6066962.png"
-                            className="h-16 w-auto mx-auto"
-                        />
+                        <Image src="https://png.pngtree.com/png-vector/20220726/ourmid/pngtree-construction-logo-png-image_6066962.png" alt="LOGO" width="500" height="500" className="h-16 w-auto mx-auto"/>
                     </div>
                     <div className="mt-12 flex flex-col items-center">
                         <h1 className="text-3xl xl:text-4xl font-extrabold uppercase tracking-wider">register</h1>
