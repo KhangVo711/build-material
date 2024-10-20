@@ -46,7 +46,7 @@ export default function BestSellProduct() {
     ];
     return (
         <div className="lg:h-[500px] md:h-[400px] px-20 w-full md:block hidden">
-        <h2 className="my-12 tracking-wider text-3xl text-center uppercase font-bold ">Sản phẩm bán chạy</h2>
+        <h2 className="my-12 tracking-wider text-3xl text-center uppercase font-bold ">Sản phẩm giảm sốc</h2>
         <div className="w-full flex justify-around items-center ">
             {productsale.map((product) => (
                 <div key={product.id} className="w-1/5 lg:h-2/3 md:h-1/2 bg-white border rounded-lg shadow-md overflow-hidden hover:scale-105 transition duration-200 ease-in-out">
@@ -63,7 +63,7 @@ export default function BestSellProduct() {
                                     {product.name}
                                 </h2>
                             </div>
-                            <div className="text-xs text-green-600 font-semibold lg:block md:hidden">
+                            <div className="text-xs text-green-600 font-semibold xl:block hidden">
                                 {product.cta1}
                             </div>
                         </div>
@@ -72,7 +72,7 @@ export default function BestSellProduct() {
                         </p>
                         <div className="flex items-center justify-between mt-4">
                             <span className="text-lg font-bold text-gray-900">{`₫${product.price}`}</span>
-                            <span className="bg-yellow-500 text-white text-xs font-semibold py-1 px-2 rounded-lg lg:block md:hidden">
+                            <span className="bg-yellow-500 text-white text-xs font-semibold py-1 px-2 rounded-lg xl:block hidden">
                                 {product.cta2}
                             </span>
                         </div>

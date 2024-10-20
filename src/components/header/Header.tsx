@@ -64,7 +64,7 @@ export default function Header() {
         </div>
         <PopoverGroup className="hidden items-center lg:flex xl:gap-x-12 lg:gap-x-7">
           <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+            <PopoverButton className="flex items-center gap-x-1 text-sm xl:text-md font-semibold leading-6 text-gray-900">
               Sản phẩm
               <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" />
             </PopoverButton>
@@ -107,13 +107,13 @@ export default function Header() {
             </PopoverPanel>
           </Popover>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="#" className="text-sm font-semibold leading-6 xl:text-md text-gray-900">
             Đặc trưng
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="#" className="text-sm font-semibold leading-6 xl:text-md text-gray-900">
             Đang giảm
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="#" className="text-sm font-semibold leading-6 xl:text-md text-gray-900">
             Liên hệ
           </a>
 
@@ -133,7 +133,7 @@ export default function Header() {
         </PopoverGroup>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link href="/login" className="text-sm font-semibold leading-6 text-gray-900 border rounded-2xl border-white hover:border hover:rounded-2xl hover:border-black px-2 py-1 transition duration-300 ease-in-out">
+          <Link href="/login" className="text-sm xl:text-md font-semibold leading-6 text-gray-900 border rounded-2xl border-white hover:border hover:rounded-2xl hover:border-black px-2 py-1 transition duration-300 ease-in-out">
             Đăng nhập 
           </Link>
         </div>
