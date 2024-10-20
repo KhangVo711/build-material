@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="container mx-auto px-4">
                 <div className="flex flex-wrap justify-between text-left">
                     <div className="w-full lg:w-6/12 px-4">
-                        <h4 className="text-3xl font-semibold">Connect with us!</h4>
+                        <h4 className="text-3xl font-semibold">Kết nối với chúng tôi!</h4>
                         <h5 className="text-lg mt-0 mb-2">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus, esse!
                         </h5>
@@ -31,16 +31,16 @@ export default function Footer() {
                     <div className="w-full lg:w-6/12 px-8">
                         <div className="flex justify-between">
                             <div className="w-full lg:w-5/12">
-                                <span className="block uppercase text-sm font-semibold mb-2 opacity-80">Useful Links</span>
+                                <span className="block uppercase text-sm font-semibold mb-2 opacity-80">Liên kết</span>
                                 <ul className="list-unstyled">
                                     <li>
                                         <a className="hover font-semibold block pb-2 text-sm" href="#">
-                                            About Us
+                                            Thông tin về chúng tôi
                                         </a>
                                     </li>
                                     <li>
                                         <a className="hover font-semibold block pb-2 text-sm" href="#">
-                                            Blog
+                                            Sản phẩm đang giảm
                                         </a>
                                     </li>
                                     <li>
@@ -50,13 +50,13 @@ export default function Footer() {
                                     </li>
                                     <li>
                                         <a className="hover font-semibold block pb-2 text-sm" href="#">
-                                            Sale Products
+                                            Blog
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                             <div className="w-full lg:w-5/12">
-                                <span className="block uppercase text-sm font-semibold mb-2 opacity-80">Other Resources</span>
+                                <span className="block uppercase text-sm font-semibold mb-2 opacity-80">Các liên kết khác</span>
                                 <ul className="list-unstyled">
                                     <li>
                                         <a className="hover font-semibold block pb-2 text-sm" href="#">

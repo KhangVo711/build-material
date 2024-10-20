@@ -7,10 +7,10 @@ export default function RegisterPage() {
             <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
                 <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                     <div className="w-full">
-                        <Image src="https://png.pngtree.com/png-vector/20220726/ourmid/pngtree-construction-logo-png-image_6066962.png" alt="LOGO" width="500" height="500" className="h-16 w-auto mx-auto"/>
+                        <Image src="https://png.pngtree.com/png-vector/20220726/ourmid/pngtree-construction-logo-png-image_6066962.png" alt="LOGO" width="500" height="500" className="h-16 w-auto mx-auto" />
                     </div>
-                    <div className="mt-12 flex flex-col items-center">
-                        <h1 className="text-3xl xl:text-4xl font-extrabold uppercase tracking-wider">register</h1>
+                    <div className="mt-4 flex flex-col items-center">
+                        <h1 className="text-3xl xl:text-4xl font-bold uppercase tracking-wider">Đăng kí</h1>
                         <div className="w-full flex-1 mt-10">
                             <div className="flex flex-col items-center">
                                 <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
@@ -34,7 +34,7 @@ export default function RegisterPage() {
                                             />
                                         </svg>
                                     </div>
-                                    <span className="ml-4">Register with Google</span>
+                                    <span className="ml-4">Đăng kí với Google</span>
                                 </button>
 
                                 {/* <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
@@ -50,9 +50,9 @@ export default function RegisterPage() {
                 </button> */}
                             </div>
 
-                            <div className="my-8 border-b text-center">
+                            <div className="my-4 border-b text-center">
                                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                                    Or register with e-mail
+                                    Hoặc đăng kí với số điện thoại
                                 </div>
                             </div>
 
@@ -60,17 +60,22 @@ export default function RegisterPage() {
                                 <input
                                     className="transition ease-in-out duration-300 w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                                     type="text"
-                                    placeholder="Full Name"
+                                    placeholder="Họ và tên"
                                 />
                                 <input
                                     className="mt-5 transition ease-in-out duration-300 w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                    type="email"
-                                    placeholder="Email"
+                                    type="text"
+                                    placeholder="Địa chỉ"
+                                />
+                                <input
+                                    className="mt-5 transition ease-in-out duration-300 w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                                    type="text"
+                                    placeholder="Số điện thoại"
                                 />
                                 <input
                                     className="transition ease-in-out duration-300 w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                                     type="password"
-                                    placeholder="Password"
+                                    placeholder="Mật khẩu"
                                 />
                                 <button className="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                                     <svg
@@ -85,21 +90,22 @@ export default function RegisterPage() {
                                         <circle cx="8.5" cy="7" r="4" />
                                         <path d="M20 8v6M23 11h-6" />
                                     </svg>
-                                    <span className="ml-3">Register</span>
+                                    <span className="ml-3">Đăng kí</span>
                                 </button>
                                 <p className="mt-6 text-xs text-gray-600 text-center">
-                                    I agree to rules by company{" "}
+                                    Đồng ý một số điều khoản của cửa hàng{" "}
                                     <a href="#" className="border-b border-gray-500 border-dotted">
                                         Terms of Service
                                     </a>{" "}
-                                    and its{" "}
+                                    và {" "}
                                     <a href="#" className="border-b border-gray-500 border-dotted">
                                         Privacy Policy
                                     </a>
                                 </p>
                             </div>
                         </div>
-                        <Link className="text-sm mt-14 text-indigo-600 border-b border-indigo-300" href="/login">Login</Link>
+                        <p className="mt-8 text-xs text-gray-600 text-center">Bạn đã có tài khoản</p>
+                        <Link className="text-sm text-indigo-600 border-b border-indigo-300" href="/login">Login</Link>
 
                     </div>
                 </div>

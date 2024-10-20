@@ -20,30 +20,32 @@ import {
   SquaresPlusIcon,
   XMarkIcon,
   MagnifyingGlassIcon,
-  MicrophoneIcon
+  MicrophoneIcon,
+  ShoppingCartIcon
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 import Image from 'next/image';
 
 const products = [
-  { name: 'Wall Paint', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-  { name: 'Metals', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-  { name: 'Aggregates', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-  { name: 'Concrete Block', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-  { name: 'Ceramic Tile', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+  { name: 'Nước sơn', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
+  { name: 'Phụ gia chống thấm', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
+  { name: 'Thạch cao', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
+  { name: 'Xi măng', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
+  { name: 'Gạch', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+  { name: 'Gỗ', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
 ]
 const callsToAction = [
-  { name: 'See Deatil', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact Sales', href: '#', icon: PhoneIcon },
+  { name: 'Xem chi tiết', href: '#', icon: PlayCircleIcon },
+  { name: 'Liên hệ mua hàng', href: '#', icon: PhoneIcon },
 ]
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white">
-      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8">
+    <header className="bg-white sticky top-0 z-10">
+      <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-8">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
@@ -60,10 +62,10 @@ export default function Header() {
             <Bars3Icon aria-hidden="true" className="h-6 w-6" />
           </button>
         </div>
-        <PopoverGroup className="hidden items-center lg:flex lg:gap-x-12">
+        <PopoverGroup className="hidden items-center lg:flex xl:gap-x-12 lg:gap-x-7">
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
-              Product
+              Sản phẩm
               <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none text-gray-400" />
             </PopoverButton>
 
@@ -106,30 +108,33 @@ export default function Header() {
           </Popover>
 
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Features
+            Đặc trưng
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Sales
+            Đang giảm
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Contact
+            Liên hệ
           </a>
 
-          <div className="flex items-center border border-gray-300 rounded-full p-2 w-80 bg-white shadow-sm">
+          <div className="flex items-center border border-gray-300 rounded-full p-2 xl:w-80 lg:w-64 bg-white shadow-sm">
             <MagnifyingGlassIcon className="h-5 w-5 text-gray-500" />
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Tìm kiếm"
               className="ml-2 outline-none w-full text-sm"
             />
             <div className="w-0.5 h-5 bg-gray-300 mr-2"></div>
-            <MicrophoneIcon className="h-5 w-5 text-gray-500" />
+            <MicrophoneIcon className="h-5 w-5 text-gray-700" />
           </div>
+          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+            <ShoppingCartIcon className="h-6 w-6 text-gray-700 hover:text-gray-900" />
+          </a>
         </PopoverGroup>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link href="/login" className="text-sm font-semibold leading-6 text-gray-900 border rounded-2xl border-white hover:border hover:rounded-2xl hover:border-black px-2 py-1 transition duration-300 ease-in-out">
-            Log in 
+            Đăng nhập 
           </Link>
         </div>
       </nav>
@@ -147,25 +152,25 @@ export default function Header() {
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+              <XMarkIcon aria-hidden="true" className="h-6 w-6 cursor-pointer" />
             </button>
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <div className="flex items-center border border-gray-300 rounded-full p-2 w-80 bg-white shadow-sm">
-                  <MagnifyingGlassIcon className="h-5 w-5 text-gray-500" />
+                <div className="flex items-center border border-gray-300 rounded-full p-1.5 w-full bg-white shadow-sm">
+                  <MagnifyingGlassIcon className="h-5 w-5 text-gray-600" />
                   <input
                     type="text"
-                    placeholder="Search"
-                    className="ml-2 outline-none w-full text-sm"
+                    placeholder="Tìm kiếm"
+                    className="ml-2 outline-none w-full"
                   />
                   <div className="w-0.5 h-5 bg-gray-300 mr-2"></div>
-                  <MicrophoneIcon className="h-5 w-5 text-gray-500" />
+                  <MicrophoneIcon className="h-5 w-5 mr-0.5 text-gray-600" />
                 </div>
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
-                    Product
+                    Sản phẩm
                     <ChevronDownIcon aria-hidden="true" className="h-5 w-5 flex-none group-data-[open]:rotate-180" />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
@@ -185,27 +190,35 @@ export default function Header() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Features
+                  Đặc trưng
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Sales
+                  Đang giảm
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Contact
+                  Liên hệ
+                </a>
+                <a
+                  href="#"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                >
+                  <p className='flex justify-between'>Giỏ hàng<ShoppingCartIcon className="h-6 w-6 text-gray-700" /></p>
                 </a>
               </div>
+              
+
               <div className="py-6">
                 <Link
                   href="/login"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Log in
+                  Đăng nhập
                 </Link>
               </div>
             </div>
