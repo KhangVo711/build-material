@@ -17,7 +17,7 @@ export default function DescribeProduct() {
                     </div>
                 </div>
             </div>
-            <div className="w-full h-[500px] xl:h-[650px] mt-16 xl:mt-24 px-10 xl:flex lg:flex items-center hidden">
+            <div className="w-full h-[500px] xl:h-[650px] mt-16 xl:mt-8 px-10 xl:flex lg:flex items-center hidden">
                 <div className="w-11/12 mx-auto">
                     <div className="grid grid-cols-2 gap-6 items-center justify-between">
                         <div className="shadow-xl">
@@ -32,7 +32,7 @@ export default function DescribeProduct() {
                 </div>
             </div>
             {/* Điện thoại */}
-            <div className="w-full h-[450px] mt-24 px-10 xl:hidden lg:hidden items-center flex">
+            <div className="w-full h-[500px] mt-28 px-10 xl:hidden lg:hidden items-center flex">
                 <div className="w-11/12 mx-auto">
                     <div className="flex flex-col items-center justify-center ">
                         <div className="flex flex-col justify-center w-full">
@@ -47,7 +47,7 @@ export default function DescribeProduct() {
                     </div>
                 </div>
             </div>
-            <div className="w-full h-[450px] px-10 mt-24 xl:hidden lg:hidden items-center flex">
+            <div className="w-full h-[500px] px-10 mt-28 xl:hidden lg:hidden items-center flex">
                 <div className="w-11/12 mx-auto">
                     <div className="flex flex-col items-center justify-center">
                         <div className="flex flex-col justify-center w-full">
