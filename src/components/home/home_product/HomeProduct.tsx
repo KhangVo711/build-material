@@ -1,4 +1,6 @@
 import { HeartIcon } from "@heroicons/react/24/outline";
+import Image from 'next/image';
+
 export default function HomeProduct() {
     const products = [
         { id: 1, name: 'Thép', price: '₫115.500', imageUrl: 'https://cdn.pixabay.com/photo/2014/10/05/08/11/iron-rods-474792_1280.jpg' },
@@ -25,7 +27,9 @@ export default function HomeProduct() {
                 {products.map(product => (
                     <article key={product.id} className=" w-full lg:h-[350px] h-[250px] flex p-2 flex-col items-center rounded-md">
                         <a href="#">
-                            <img className="mb-2.5 hover:grow hover:scale-105 hover:shadow-xl w-full lg:h-[250px] h-[150px] rounded-sm transition duration-300 ease-in-out" src={product.imageUrl} alt={`Image of ${product.name}`} />
+
+                            <Image className="mb-2.5 hover:grow hover:scale-105 hover:shadow-xl w-full lg:h-[250px] h-[150px] rounded-sm transition duration-300 ease-in-out" width="500" height="500" src={product.imageUrl} alt={`Image of ${product.name}`} />
+                            
                             <div className="pt-4 flex items-center justify-between">
                                 <p className=""><strong>{product.name}</strong></p>
                                 <HeartIcon className="h-6 w-6 text-gray-500" />

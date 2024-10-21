@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { PhoneIcon, EnvelopeIcon, MapIcon } from "@heroicons/react/24/solid"
+import Image from 'next/image';
 
 interface FormData {
   name: string;
@@ -109,7 +110,9 @@ const ContactForm: React.FC = () => {
         <p className='mb-2.5'><MapIcon className="h-6 w-6 inline-block text-gray-600 mr-2" /><strong>Địa chỉ:</strong> 789 Oak Lane, Lakeside, TX 54321</p>
       </div>
       <div className='w-10/12 h-1/3'>
-        <img src="https://developers.google.com/static/maps/images/landing/hero_maps_static_api.png" alt="Map" className='rounded-lg shadow-md'/>
+ 
+        <Image className='rounded-lg shadow-md' width="500" height="500"  src="https://developers.google.com/static/maps/images/landing/hero_maps_static_api.png" alt="Map" />
+
       </div>
       </div>
     </div>
