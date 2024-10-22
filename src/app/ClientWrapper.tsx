@@ -10,8 +10,13 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
   const isHidden = [
     "/login",
     "/register",
-    "/forgot-password"
-  ].includes(pathname) || /^\/admin\b/.test(pathname);
+    "/forgot-password",
+    "/addproduct",
+    "/dashboard",
+    "/addcategory",
+    "/addproducer",
+
+  ].includes(pathname);
   
 
   return (
