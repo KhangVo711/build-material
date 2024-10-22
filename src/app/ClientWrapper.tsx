@@ -7,7 +7,12 @@ import Footer from "@/components/footer/Footer";
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();  
 
-  const isHidden = ["/login", "/register", "/forgot-password", "/admin"].includes(pathname);
+  const isHidden = [
+    "/login",
+    "/register",
+    "/forgot-password"
+  ].includes(pathname) || /^\/admin\b/.test(pathname);
+  
 
   return (
     <>

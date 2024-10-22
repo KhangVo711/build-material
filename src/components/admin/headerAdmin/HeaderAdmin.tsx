@@ -11,7 +11,7 @@ export default function HeaderAdmin() {
 
   return (
     <div className="sticky top-0 z-40 w-full">
-      <div className="w-full h-16 px-6 bg-gray-100 border-b flex items-center justify-between">
+      <div className="w-full h-16 px-3 bg-gray-100 border-b flex items-center justify-between">
         
         {/* Left navbar */}
         <div className="flex">
@@ -30,7 +30,7 @@ export default function HeaderAdmin() {
             <input
               type="text"
               name="search"
-              placeholder="Search products..."
+              placeholder="Tìm kiếm sản phẩm..."
               className="bg-white h-10 w-full lg:w-96 xl:w-[500px] px-5 rounded-xl border text-sm focus:outline-none"
             />
             <button type="submit" className="absolute right-0 top-0 mt-3 mr-4">
@@ -68,13 +68,13 @@ export default function HeaderAdmin() {
       {dropDownOpen && (
         <div className="absolute bg-gray-50 border border-t-1 shadow-xl top-14 text-gray-700 rounded-b-lg w-48 h-[120px] bottom-10 right-0 mr-6">
           <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-            Account
+            Tài khoản
           </a>
           <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-            Settings
+            Cài đặt
           </a>
           <a href="#" className="block px-4 py-2 hover:bg-gray-200">
-            Logout
+            Đăng suất
           </a>
         </div>
       )}
