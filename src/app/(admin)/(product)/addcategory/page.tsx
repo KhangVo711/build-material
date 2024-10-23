@@ -2,30 +2,24 @@
 import { ChevronRightIcon, EyeIcon, PencilSquareIcon, TrashIcon} from '@heroicons/react/24/solid';
 import { useState, useEffect, useRef } from 'react';
 
-export default function AddProduct() {
+export default function AddCategory() {
     const [showForm, setShowForm] = useState(false);
     const formRef = useRef<HTMLFormElement | null>(null);
     const product = [
         {
-            name: 'Apple MacBook Pro 17"',
-            color: 'Silver',
-            category: 'Laptop',
-            quality: '2',
-            price: '$2999',
+            code: 'NS-001',
+            name: 'Nước sơn',
+            
+
         },
         {
-            name: 'Microsoft Surface Pro',
-            color: 'White',
-            category: 'Laptop PC',
-            quality: '5',
-            price: '$1999',
+            code: 'KD-001',
+            name: 'Keo dán',
         },
         {
-            name: 'Magic Mouse 2',
-            color: 'Black',
-            category: 'Accessories',
-            quality: '10',
-            price: '$99',
+            code: 'GC-001',
+            name: 'Gạch',
+           
         },
     ]
     const handleAddProductClick = () => {
@@ -49,7 +43,7 @@ export default function AddProduct() {
         };
     }, [showForm]);
     return (
-        <div id="home" className='p-8 '>
+        <div id="home" className='px-8 pt-5'>
             {/* Breadcrumb */}
             <div className='w-full flex items-center justify-between mb-6'>
                 <nav className="text-sm font-semibold " aria-label="Breadcrumb">
@@ -70,45 +64,30 @@ export default function AddProduct() {
                 <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
-                            <th scope="col" className="px-6 py-3">
-                                Product name
+                            <th scope="col" className="px-4 py-3">
+                                Mã loại
                             </th>
-                            <th scope="col" className="px-6 py-3">
-                                Color
+                            <th scope="col" className="px-40 py-3">
+                                Loại
                             </th>
-                            <th scope="col" className="px-6 py-3">
-                                Category
-                            </th>
-                            {/* <th scope="col" className="px-6 py-3">
-                Quality
-              </th> */}
-                            <th scope="col" className="px-6 py-3">
-                                Price
-                            </th>
-                            <th scope="col" className="px-6 py-3 ">
-                                Action
+                           
+                            <th scope="col" className="px-1 py-3 ">
+                                Hành động
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         {product.map((item, index) => (
                             <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {item.name}
+                                <th  scope="row" className="px-4 py-4">
+                                    {item.code}
                                 </th>
-                                <td className="px-6 py-4">
-                                    {item.color}
+                                <td className="px-40 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {item.name}
                                 </td>
-                                <td className="px-6 py-4">
-                                    {item.category}
-                                </td>
-                                {/* <td className="px-6 py-4">
-                  {item.quality}
-                </td> */}
-                                <td className="px-6 py-4">
-                                    {item.price}
-                                </td>
-                                <td className="px-6 py-4 flex">
+                                
+                              
+                                <td className="px-1 py-4 flex">
                                     <a href="#" className="transition duration-200 ease-out "><EyeIcon className="h-5 w-5 text-gray-500 dark:text-white hover:text-gray-400" /></a>
                                     <a href="#" className="transition duration-200 ease-out mx-2"><PencilSquareIcon className="h-5 w-5 text-blue-600 dark:text-blue-500 hover:text-blue-400" /></a>
                                     <a href="#" className="transition duration-200 ease-out "><TrashIcon className="h-5 w-5 text-red-600 dark:text-red-500 hover:text-red-400" /></a>
@@ -120,15 +99,15 @@ export default function AddProduct() {
             </div>
 
             {showForm && (
-                <div className='w-full absolute h-screen bg-black bg-opacity-5 top-0 right-1/2 translate-x-1/2 flex items-center'>
+                <div className='w-full absolute h-screen bg-black bg-opacity-10 top-0 right-1/2 translate-x-1/2 flex items-center'>
                     <form ref={formRef} className="w-5/12 mx-auto bg-gray-100 shadow-lg border rounded p-10 mt-16 ">
-                        <div className="mb-5">
+                        <div className="mb-3">
                             <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mã sản phẩm</label>
-                            <input type="text" id="code" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                            <input type="text" id="code" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
                         </div>
-                        <div className="mb-5">
+                        <div className="mb-3">
                             <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên sản phẩm</label>
-                            <input type="text" id="name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
+                            <input type="text" id="name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
                         </div>
 
                         <div className='flex items-center justify-center w-full'>
