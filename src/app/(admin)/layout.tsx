@@ -10,7 +10,7 @@ export default function AdminLayout({
             <div className="w-1/5">
                 <SideBar />
             </div>
-            <div className="w-5/6">
+            <div className="w-5/6 relative ">
                 <HeaderAdmin />
                 {children}
             </div>

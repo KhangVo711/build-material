@@ -4,14 +4,14 @@ import Image from 'next/image';
 export default function RegisterPage() {
     return (
         <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
-            <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+            <div className="max-w-screen-xl m-0 sm:m-6 bg-white shadow sm:rounded-lg flex justify-center flex-1">
                 <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                     <div className="w-full">
                         <Image src="https://png.pngtree.com/png-vector/20220726/ourmid/pngtree-construction-logo-png-image_6066962.png" alt="LOGO" width="500" height="500" className="h-16 w-auto mx-auto" />
                     </div>
-                    <div className="mt-4 flex flex-col items-center">
+                    <div className="mt-2 flex flex-col items-center">
                         <h1 className="text-3xl xl:text-4xl font-bold uppercase tracking-wider">Đăng kí</h1>
-                        <div className="w-full flex-1 mt-10">
+                        <div className="w-full flex-1 mt-4">
                             <div className="flex flex-col items-center">
                                 <button className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
                                     <div className="bg-white p-2 rounded-full">
@@ -50,7 +50,7 @@ export default function RegisterPage() {
                 </button> */}
                             </div>
 
-                            <div className="my-4 border-b text-center">
+                            <div className="my-2 border-b text-center">
                                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
                                     Hoặc đăng kí với số điện thoại
                                 </div>
@@ -104,7 +104,7 @@ export default function RegisterPage() {
                                 </p>
                             </div>
                         </div>
-                        <p className="mt-8 text-xs text-gray-600 text-center">Bạn đã có tài khoản</p>
+                        <p className="mt-4 text-xs text-gray-600 text-center">Bạn đã có tài khoản</p>
                         <Link className="text-sm text-indigo-600 border-b border-indigo-300" href="/login">Login</Link>
 
                     </div>
