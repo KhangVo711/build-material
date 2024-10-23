@@ -3,14 +3,10 @@ import { ChevronRightIcon, EyeIcon, PencilSquareIcon, TrashIcon} from '@heroicon
 import { useState, useEffect, useRef } from 'react';
 
 export default function AddCategory() {
-    const [showForm, setShowForm] = useState(false);
-    const formRef = useRef<HTMLFormElement | null>(null);
     const product = [
         {
             code: 'NS-001',
             name: 'Nước sơn',
-            
-
         },
         {
             code: 'KD-001',
@@ -19,9 +15,12 @@ export default function AddCategory() {
         {
             code: 'GC-001',
             name: 'Gạch',
-           
         },
     ]
+    // ADD PRODUCT
+    const [showForm, setShowForm] = useState(false);
+    const formRef = useRef<HTMLFormElement | null>(null);
+    
     const handleAddProductClick = () => {
         setShowForm(!showForm);
     };
@@ -30,7 +29,6 @@ export default function AddCategory() {
             setShowForm(false);
         }
     };
-
     useEffect(() => {
         if (showForm) {
             document.addEventListener('mousedown', handleClickOutside);
@@ -42,6 +40,34 @@ export default function AddCategory() {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [showForm]);
+    // END ADD PRODUCT
+
+    // EDIT PRODUCT
+    const [nameCategory, setNameCategory] = useState("Nước sơn");
+
+    const [showFormEdit, setShowFormEdit] = useState(false);
+    const formRefEdit = useRef<HTMLFormElement | null>(null);
+    
+    const handleEditProductClick = () => {
+        setShowFormEdit(!showFormEdit);
+    };
+    const handleClickOutsideEdit = (event: MouseEvent) => {
+        if (formRefEdit.current && !formRefEdit.current.contains(event.target as Node)) {
+            setShowFormEdit(false);
+        }
+    };
+    useEffect(() => {
+        if (showFormEdit) {
+            document.addEventListener('mousedown', handleClickOutsideEdit);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutsideEdit);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutsideEdit);
+        };
+    }, [showFormEdit]);
+    // END EDIT PRODUCT
     return (
         <div id="home" className='px-8 pt-5'>
             {/* Breadcrumb */}
@@ -89,7 +115,7 @@ export default function AddCategory() {
                               
                                 <td className="px-1 py-4 flex">
                                     <a href="#" className="transition duration-200 ease-out "><EyeIcon className="h-5 w-5 text-gray-500 dark:text-white hover:text-gray-400" /></a>
-                                    <a href="#" className="transition duration-200 ease-out mx-2"><PencilSquareIcon className="h-5 w-5 text-blue-600 dark:text-blue-500 hover:text-blue-400" /></a>
+                                    <button onClick={handleEditProductClick} className="transition duration-200 ease-out mx-2"><PencilSquareIcon className="h-5 w-5 text-blue-600 dark:text-blue-500 hover:text-blue-400"/></button>
                                     <a href="#" className="transition duration-200 ease-out "><TrashIcon className="h-5 w-5 text-red-600 dark:text-red-500 hover:text-red-400" /></a>
                                 </td>
                             </tr>
@@ -102,16 +128,34 @@ export default function AddCategory() {
                 <div className='w-full absolute h-screen bg-black bg-opacity-10 top-0 right-1/2 translate-x-1/2 flex items-center'>
                     <form ref={formRef} className="w-5/12 mx-auto bg-gray-100 shadow-lg border rounded p-10 mt-16 ">
                         <div className="mb-3">
-                            <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mã sản phẩm</label>
+                            <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mã loại</label>
                             <input type="text" id="code" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên sản phẩm</label>
+                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên loại</label>
                             <input type="text" id="name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required />
                         </div>
 
                         <div className='flex items-center justify-center w-full'>
                             <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Thêm</button>
+                        </div>
+                    </form>
+                </div>
+            )}
+            {showFormEdit && (
+                <div className='w-full absolute h-screen bg-black bg-opacity-10 top-0 right-1/2 translate-x-1/2 flex items-center'>
+                    <form ref={formRefEdit} className="w-5/12 mx-auto bg-gray-100 shadow-lg border rounded p-10 mt-16 ">
+                        <div className="mb-3">
+                            <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mã loại</label>
+                            <p id="code" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">NS-001</p>
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên loại</label>
+                            <input type="text" id="name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" value={nameCategory}  onChange={(e) => setNameCategory(e.target.value)}/>
+                        </div>
+
+                        <div className='flex items-center justify-center w-full'>
+                            <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Đồng ý</button>
                         </div>
                     </form>
                 </div>
