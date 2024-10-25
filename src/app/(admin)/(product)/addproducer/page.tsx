@@ -53,7 +53,7 @@ export default function AddProduct() {
     // END ADD PRODUCT
 
     // EDIT PRODUCT
-    const [nameProducer, setNameProducer] = useState("MyColor");
+    // const [nameProducer, setNameProducer] = useState("MyColor");
     const [nameCategory, setNameCategory] = useState("Nước sơn");
     const [email, setEmail] = useState("mycolor@gmail.com");
     const [address, setAddress] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec.");
