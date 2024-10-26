@@ -81,6 +81,38 @@ export default function AddProduct() {
         };
     }, [showFormEdit]);
     // END EDIT PRODUCT
+
+    // View Product
+    interface Product {
+        name: string,
+        code: string,
+        category: string,
+        email: string,
+        address: string,
+    }
+    const [viewedProduct, setViewedProduct] = useState<Product | null>(null);
+    const formRefView = useRef<HTMLDivElement | null>(null);
+
+    const handleViewProductClick = (product: Product) => {
+        setViewedProduct(product);
+    };
+
+    const handleClickOutsideView = (event: MouseEvent) => {
+        if (formRefView.current && !formRefView.current.contains(event.target as Node)) {
+            setViewedProduct(null);
+        }
+    };
+
+    useEffect(() => {
+        if (viewedProduct) {
+            document.addEventListener("mousedown", handleClickOutsideView);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutsideView);
+        }
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutsideView);
+        };
+    }, [viewedProduct]);
     return (
         <div id="home" className='px-8 pt-5'>
             {/* Breadcrumb */}
@@ -132,7 +164,7 @@ export default function AddProduct() {
                                     {item.category}
                                 </td>
                                 <td className="px-2 py-4 flex">
-                                    <a href="#" className="transition duration-200 ease-out "><EyeIcon className="h-5 w-5 text-gray-500 dark:text-white hover:text-gray-400" /></a>
+                                    <button onClick={() => handleViewProductClick(item)} className="transition duration-200 ease-out "><EyeIcon className="h-5 w-5 text-gray-500 dark:text-white hover:text-gray-400" /></button>
                                     <button onClick={handleEditProductClick} className="transition duration-200 ease-out mx-2"><PencilSquareIcon className="h-5 w-5 text-blue-600 dark:text-blue-500 hover:text-blue-400" /></button>
                                     <a href="#" className="transition duration-200 ease-out "><TrashIcon className="h-5 w-5 text-red-600 dark:text-red-500 hover:text-red-400" /></a>
                                 </td>
@@ -187,7 +219,7 @@ export default function AddProduct() {
             {showFormEdit && (
                 <div className='w-full absolute h-screen bg-black bg-opacity-10 top-0 right-1/2 translate-x-1/2 flex items-center'>
                     <form ref={formRefEdit} className="w-5/12 mx-auto bg-gray-100 shadow-lg border rounded p-10 mt-16 ">
-                        <div className="mb-3 flex">
+                        <div className="mb-5 flex">
                             <div className="w-1/3 mr-1">
                                 <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mã nhà sản xuất</label>
                                 <p id="code" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light">MC-001</p>
@@ -196,14 +228,6 @@ export default function AddProduct() {
                                 <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tên nhà sản xuất</label>
                                 <input type="text" id="name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" value={nameCategory} onChange={(e) => setNameCategory(e.target.value)} />
                             </div>
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                            <input type="text" id="code" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Địa chỉ</label>
-                            <input type="text" id="code" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" value={address} onChange={(e) => setAddress(e.target.value)}/>
                         </div>
                         <div className='mb-3'>
                             <div className="w-36 relative">
@@ -218,6 +242,15 @@ export default function AddProduct() {
                                 </div>
                             </div>
                         </div>
+                        <div className="mb-3">
+                            <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input type="text" id="code" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="code" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Địa chỉ</label>
+                            <input type="text" id="code" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" value={address} onChange={(e) => setAddress(e.target.value)} />
+                        </div>
+                     
 
                         <div className='flex items-center justify-center w-full'>
                             <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-md text-sm px-4 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Đồng ý</button>
@@ -225,6 +258,56 @@ export default function AddProduct() {
                     </form>
                 </div>
             )}
+
+            {viewedProduct && (
+                <div className="w-full absolute h-screen bg-black bg-opacity-10 top-0 right-1/2 translate-x-1/2 flex items-center">
+                    <div ref={formRefView} className="w-5/12 mx-auto bg-gray-100 shadow-lg border rounded p-10 mt-16 ">
+                        <div className="mb-3 flex">
+                            <div className="w-1/3 mr-1">
+                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Mã nhà sản xuất
+                                </label>
+                                <p className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                    {viewedProduct.code}
+                                </p>
+                            </div>
+                            <div className="w-2/3 ml-1">
+                                <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Tên nhà sản xuất
+                                </label>
+                                <p className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                    {viewedProduct.name}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="mb-3">
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Loại
+                            </label>
+                            <p className="shadow-sm w-1/3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                {viewedProduct.category}
+                            </p>
+                        </div>
+                        <div className="mb-3">
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Email
+                            </label>
+                            <p className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                {viewedProduct.email}
+                            </p>
+                        </div>
+                        <div className="mb-3">
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                Địa chỉ
+                            </label>
+                            <p className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full pl-2.5 py-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                                {viewedProduct.address}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </div>
 
     )
