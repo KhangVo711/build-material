@@ -62,15 +62,15 @@ export default function AllProduct() {
 
             <Popover className="w-full xl:px-48 md:px-5 lg:px-8 px-2.5 pt-12 xl:pb-8 pb-3 flex justify-between items-center relative">
                 <h2 className="w-full text-center lg:text-3xl text-xl tracking-wide font-bold uppercase">Sản phẩm</h2>
-                <PopoverButton className=" flex items-end  justify-end group outline-none text-gray-600 hover:text-gray-800 absolute right-28 bottom-0 text-xs md:text-sm lg:text-md transition duration-150 ease-in-out">
+                <PopoverButton className="flex items-end justify-end group outline-none text-gray-600 hover:text-gray-800 absolute right-6 bottom-0 text-xs md:text-sm lg:text-md transition duration-150 ease-in-out">
                     <FunnelIcon className="h-7 w-7 group-hover:text-gray-900 text-gray-600 mr-0.5" />Lọc
                 </PopoverButton>
                 <PopoverPanel
                     transition
-                    className="absolute flex justify-between right-48 bottom-0 z-10 mt-3 w-screen max-w-20 overflow-hidden  transition data-[closed]:translate-x-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+                    className="absolute flex justify-between right-24 bottom-0 z-10 mt-3 w-screen max-w-20 overflow-hidden  transition data-[closed]:translate-x-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
                 >
-                    <BarsArrowDownIcon className="h-8 w-8 text-gray-600 hover:text-gray-900" />
-                    <BarsArrowUpIcon className="h-8 w-8 text-gray-600 hover:text-gray-900" />
+                    <BarsArrowDownIcon className="h-7 w-7 text-gray-600 hover:text-gray-900 cursor-pointer" />
+                    <BarsArrowUpIcon className="h-7 w-7 text-gray-600 hover:text-gray-900 cursor-pointer" />
 
                 </PopoverPanel>
             </Popover>

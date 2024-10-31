@@ -19,9 +19,9 @@ export default function HomeProduct() {
     
     return (
         <div>
-            <div className="w-full xl:px-48 md:px-5 lg:px-8 px-2.5 pt-12 xl:pb-8 pb-3 flex justify-between items-center">
-                <h2 className="lg:text-3xl text-xl tracking-wide font-bold uppercase">Sản phẩm</h2>
-                <button className="bg-yellow-500 w-20 xl:w-28 border border-yellow-bg-yellow-500 hover:bg-yellow-400 text-white text-xs md:text-lg lg:text-xl px-0.5 py-2 transition duration-150 ease-in-out lg:w-32 md:w-24">Xem tất cả</button>
+            <div className="w-full px-2.5 pt-12 xl:pb-8 pb-3 flex justify-between items-center relative">
+                <h2 className="w-full text-center lg:text-3xl text-xl tracking-wide font-bold uppercase">Sản phẩm</h2>
+                <button className="absolute right-4 bottom-0 bg-yellow-500 w-20 xl:w-28 border border-yellow-bg-yellow-500 hover:bg-yellow-400 rounded-md text-white text-xs md:text-md lg:text-lg px-0.5 py-2 transition duration-150 ease-in-out lg:w-32 md:w-24">Xem tất cả</button>
             </div>
             <div className="container mx-auto grid md:grid-cols-3 xl:grid-cols-4 grid-cols-2 gap-5 pt-4 pb-12 ">
                 {products.map(product => (

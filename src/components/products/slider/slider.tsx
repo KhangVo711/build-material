@@ -13,13 +13,13 @@ interface ImageData {
 // Image data array
 const images: ImageData[] = [
   {
-    src: 'https://cdn.pixabay.com/photo/2020/03/23/18/02/steel-4961636_640.jpg',
+    src: 'https://cdn.pixabay.com/photo/2016/05/08/22/44/graffiti-1380108_1280.jpg',
   },
   {
-    src: 'https://cdn.pixabay.com/photo/2017/03/10/14/29/structure-2132987_640.jpg',
+    src: 'https://cdn.pixabay.com/photo/2015/09/09/18/03/bullion-932218_640.jpg',
   },
   {
-    src: 'https://cdn.pixabay.com/photo/2016/07/09/23/07/site-1507007_640.jpg',
+    src: 'https://cdn.pixabay.com/photo/2014/01/18/10/14/vaulted-cellar-247391_640.jpg',
   },
 ];
 
@@ -35,17 +35,17 @@ const contents: Content[] = [
   { 
     title: 'Sản phẩm nước sơn', 
     content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia aut eveniet eligendi reprehenderit dicta minima molestiae aspernatur sunt deserunt rem, ea fuga modi doloribus, hic accusantium ad nostrum corrupti quia nemo quaerat voluptas animi repellendus voluptatibus. Quisquam perferendis perspiciatis voluptates eum beatae sequi, quas voluptatum, eius eos amet sunt porro, deserunt doloremque voluptate nulla necessitatibus. Veritatis sint eius incidunt esse.',
-    link: '/nuocson' 
+    link: '#' 
   },
   { 
     title: 'Nhiều người mua nhất', 
     content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia aut eveniet eligendi reprehenderit dicta minima molestiae aspernatur sunt deserunt rem, ea fuga modi doloribus, hic accusantium ad nostrum corrupti quia nemo quaerat voluptas animi repellendus voluptatibus. Quisquam perferendis perspiciatis voluptates eum beatae sequi, quas voluptatum, eius eos amet sunt porro, deserunt doloremque voluptate nulla necessitatibus. Veritatis sint eius incidunt esse.',
-    link: '/morebuy' 
+    link: '#' 
   },
   { 
     title: 'Sản phẩm mới về', 
     content: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia aut eveniet eligendi reprehenderit dicta minima molestiae aspernatur sunt deserunt rem, ea fuga modi doloribus, hic accusantium ad nostrum corrupti quia nemo quaerat voluptas animi repellendus voluptatibus. Quisquam perferendis perspiciatis voluptates eum beatae sequi, quas voluptatum, eius eos amet sunt porro, deserunt doloremque voluptate nulla necessitatibus. Veritatis sint eius incidunt esse.',
-    link: '/newproduct' 
+    link: '#' 
   },
 ];
 
@@ -75,7 +75,7 @@ export default function ImageSlider(): JSX.Element {
     if (contentRef.current) {
       gsap.fromTo(
         contentRef.current,
-        { opacity: 0, x: 60 },
+        { opacity: 0, x: -60 },
         { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
       );
     }
@@ -85,8 +85,8 @@ export default function ImageSlider(): JSX.Element {
     if (titleRef.current) {
       gsap.fromTo(
         titleRef.current,
-        { opacity: 0, x: -60 },
-        { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" }
+        { opacity: 0, y: -60 },
+        { opacity: 1, y: 0, duration: 1.5, ease: "power2.out" }
       );
     }
   }, [currentIndex]);
@@ -104,7 +104,7 @@ export default function ImageSlider(): JSX.Element {
     if (!isHovered) {
       const interval = setInterval(() => {
         nextSlide();
-      }, 3000);
+      }, 4000);
 
       return () => {
         clearInterval(interval);
@@ -121,19 +121,20 @@ export default function ImageSlider(): JSX.Element {
   };
 
   return (
-    <div className="relative w-full mx-auto mt-4">
+    <div className="relative w-full mx-auto ">
       <div
-        className="relative h-[480px] w-full group pl-52"
+        className="relative h-[560px] w-full group pl-36"
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
       >
         <Image
-          src={images[currentIndex].src}
-          alt={`Slider Image ${currentIndex + 1}`}
-          layout="fill"
-          objectFit="cover"
-          className="transition-all duration-500 ease-in-out cursor-pointer"
-        />
+    src={images[currentIndex].src}
+    alt={`Slider Image ${currentIndex + 1}`}
+    layout="fill"
+    objectFit="cover"
+    className="transition-all duration-500 ease-in-out cursor-pointer"
+  />
+  <div className="absolute inset-0 bg-black opacity-40 pointer-events-none"></div>
         <div className="absolute top-1/4 text-white w-[40%]">
           <h2 ref={titleRef} className="uppercase text-4xl drop-shadow-2xl mb-4 font-semibold">
             {contents[currentIndex].title}
@@ -151,13 +152,13 @@ export default function ImageSlider(): JSX.Element {
         </div>
       </div>
       <button
-        className="absolute transition ease-in-out duration-200 left-0 top-1/2 transform rounded-xl py-3 hover:bg-gray-50 mx-1 -mt-[10px] -translate-y-1/2 text-white px-1.5 group"
+        className="absolute outline-none transition ease-in-out duration-200 left-0 top-1/2 transform rounded-xl py-3 hover:bg-gray-50 mx-1 -mt-[10px] -translate-y-1/2 text-white px-1.5 group"
         onClick={prevSlide}
       >
         <ChevronLeftIcon className="text-gray-200 w-8 h-8 transition ease-in-out duration-200 group-hover:text-black" />
       </button>
       <button
-        className="absolute transition ease-in-out duration-200 right-0 top-1/2 transform rounded-xl py-3 hover:bg-gray-50 mx-1 -mt-[10px] -translate-y-1/2 text-white px-1.5 group"
+        className="absolute outline-none transition ease-in-out duration-200 right-0 top-1/2 transform rounded-xl py-3 hover:bg-gray-50 mx-1 -mt-[10px] -translate-y-1/2 text-white px-1.5 group"
         onClick={nextSlide}
       >
         <ChevronRightIcon className="text-gray-200 w-8 h-8 transition ease-in-out duration-200 group-hover:text-black" />
