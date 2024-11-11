@@ -1,9 +1,9 @@
 import { ChevronRightIcon } from '@heroicons/react/24/solid';
 
-export default function DashboardPage() {
+export default function DefaultDashboardPage() {
     return (
         <>
-            <nav className="text-sm font-semibold mt-3" aria-label="Breadcrumb">
+            <nav className="text-sm font-semibold mb-3" aria-label="Breadcrumb">
                 <ol className="list-none p-0 inline-flex">
                     <li className="flex items-center text-blue-500">
                         <a href="#" className="text-gray-700">Trang chủ</a>

@@ -1,5 +1,5 @@
-import HeaderAdmin from "@/components/admin/headerAdmin/HeaderAdmin";
-import SideBar from "@/components/admin/sidebar/SideBar";
+import HeaderAdmin from "./@headerAdmin/page";
+import SideBarAdmin from "./@sideBarAdmin/page";
 export default function AdminLayout({
     children,
 }: {
@@ -8,9 +8,9 @@ export default function AdminLayout({
     return (
         <div className="flex w-full justify-between h-screen">
             <div className="w-1/5">
-                <SideBar />
+                <SideBarAdmin />
             </div>
-            <div className="w-5/6 relative ">
+            <div className="w-4/5 relative ">
                 <HeaderAdmin />
                 {children}
             </div>
